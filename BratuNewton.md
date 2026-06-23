@@ -29,13 +29,13 @@ fespace Vh(Th, Pk); // must at least span $H^1(\Omega)$
 The weak form of the residual is, find $q\in{}V$ such that:
 
 $$
-\forall v\in V,\qquad{}R(q;\lambda) = \int_{\Omega}\nabla v\cdot\nabla q - \lambda\exp(q)v\,\mathrm{d}\boldsymbol{x}
+\forall v\in V,\qquad{}R(q;\lambda) = \int_{\Omega}\nabla v\cdot\nabla q - \lambda\exp(q)v\mathrm{d}\boldsymbol{x}
 $$
 
 The weak form of the Jacobian is, find $\delta{}q\in{}V$ such that:
 
 $$
-\forall v\in V,\qquad{}J(q;\lambda)\delta{}q = \int_{\Omega}\nabla v\cdot\nabla (\delta q) - \lambda\exp(q)\delta{}qv\,\mathrm{d}\boldsymbol{x}
+\forall v\in V,\qquad{}J(q;\lambda)\delta{}q = \int_{\Omega}\nabla v\cdot\nabla (\delta q) - \lambda\exp(q)\delta{}qv\mathrm{d}\boldsymbol{x}
 $$
 
 ```freefem
