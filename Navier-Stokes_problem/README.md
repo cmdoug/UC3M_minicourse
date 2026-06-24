@@ -5,7 +5,7 @@ This example reproduces the vortex shedding phenomenon behind a cylinder in inco
 In strong form, the governing equations are given as:
 
 $$
-\frac{\partial \vec{u}}{\partial t} + \vec{u}\cdot\nabla \vec{u} = -\nabla p + \frac{1}{Re}\nabla^2\vec{u}\\
+\frac{\partial \vec{u}}{\partial t} + \vec{u}\cdot\nabla \vec{u} = -\nabla p + \frac{1}{Re}\nabla^2\vec{u}\\\\
 \nabla\cdot \vec{u}=0.
 $$
 
@@ -15,7 +15,7 @@ $$
 \int_\Omega\check{\vec{u}}\frac{\partial\vec{u}}{\partial t}\,\mathrm{d}\vec{x}
 + \int_\Omega\check{\vec{u}}\left(\vec{u}\cdot\nabla\vec{u}\right)\,\mathrm{d}\vec{x}
 - \int_\Omega\left(\nabla\cdot\check{\vec{u}}\right)p\,\mathrm{d}\vec{x}
-+ \int_\Omega\frac{1}{Re}\nabla\check{\vec{u}}:\nabla\vec{u}\,\mathrm{d}\vec{x}\\
++ \int_\Omega\frac{1}{Re}\nabla\check{\vec{u}}:\nabla\vec{u}\,\mathrm{d}\vec{x}\\\\
 - \int_\Omega\check{p}\left(\nabla\cdot\vec{u}\right)\,\mathrm{d}\vec{x}=0
 $$
 
