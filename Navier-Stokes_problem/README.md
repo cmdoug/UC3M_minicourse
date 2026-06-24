@@ -34,15 +34,15 @@ export nproc=4
 ```
 3. Create symbolic links for governing equations and solver settings.
 ```sh
-ln -sf ~/your/path/to/Navier-Stokes_problem/eqns_NS.idp eqns.idp
-ln -sf ~/your/path/to/Navier-Stokes_problem/settings_NS.idp settings.idp
+ln -sf $workdir/../eqns_NS.idp eqns.idp
+ln -sf $workdir/../settings_NS.idp settings.idp
 ````
 
 ## Build initial meshes
 
 #### Build initial mesh using BAMG in FreeFEM
 ```sh
-FreeFem++-mpi -v 0 examples/Navier-Stokes_problem/cylinder.md -mo $workdir/cylinder
+FreeFem++-mpi -v 0 $workdir/../cylinder.md -mo $workdir/cylinder
 ```
 
 ## Perform parallel computations using `ff-bifbox`
