@@ -4,21 +4,19 @@ This example reproduces the vortex shedding phenomenon behind a cylinder in inco
 
 In strong form, the governing equations are given as:
 
-$$
+$$`
 \begin{align*}
 \frac{\partial \vec{u}}{\partial t} + \vec{u}\cdot\nabla \vec{u} + \nabla p - \frac{1}{Re}\nabla^2\vec{u} &= 0\\\\
 \nabla\cdot \vec{u} &= 0.
 \end{align*}
-$$
+`$$
 
 The present implementation is based on a weak formulation of these equations. Test functions are introduced, and the equations are integrated over the planar domain $\Omega$ with boundary $\partial\Omega$. Solutions $`\left[\vec{u},p\right]^T`$ are then sought, in the appropriate space, such that for all test functions $`\left[\check{\vec{u}},\check{p}\right]^T`$,
 
 $$
-\int_\Omega\check{\vec{u}}\frac{\partial\vec{u}}{\partial t}\,\mathrm{d}\vec{x}
-+ \int_\Omega\check{\vec{u}}\left(\vec{u}\cdot\nabla\vec{u}\right)\,\mathrm{d}\vec{x}
-- \int_\Omega\left(\nabla\cdot\check{\vec{u}}\right)p\,\mathrm{d}\vec{x}
-+ \int_\Omega\frac{1}{Re}\nabla\check{\vec{u}}:\nabla\vec{u}\,\mathrm{d}\vec{x}\\\\
-- \int_\Omega\check{p}\left(\nabla\cdot\vec{u}\right)\,\mathrm{d}\vec{x}=0
+\begin{align*}
+\int_\Omega\left\lbrace\check{\vec{u}}\cdot\left[\frac{\partial\vec{u}}{\partial t} + \left(\vec{u}\cdot\nabla\vec{u}\right)\right] - \left(\nabla\cdot\check{\vec{u}}\right)p + \frac{1}{Re}\nabla\check{\vec{u}}:\nabla\vec{u} - \check{p}\left(\nabla\cdot\vec{u}\right)\right\rbrace\mathrm{d}\vec{x}=0
+\end{align*}
 $$
 
 This weak formulation has been implemented in the equations file for this example: [eqns_NS.idp](./eqns_NS.idp).
