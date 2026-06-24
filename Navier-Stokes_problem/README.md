@@ -4,12 +4,12 @@ This example reproduces the vortex shedding phenomenon behind a cylinder in inco
 
 In strong form, the governing equations are given as:
 
-$$`
+$$
 \begin{align*}
 \frac{\partial \vec{u}}{\partial t} + \vec{u}\cdot\nabla \vec{u} + \nabla p - \frac{1}{Re}\nabla^2\vec{u} &= 0\\\\
-\nabla\cdot \vec{u} &= 0.
+\nabla\cdot \vec{u} &= 0
 \end{align*}
-`$$
+$$
 
 The present implementation is based on a weak formulation of these equations. Test functions are introduced, and the equations are integrated over the planar domain $\Omega$ with boundary $\partial\Omega$. Solutions $`\left[\vec{u},p\right]^T`$ are then sought, in the appropriate space, such that for all test functions $`\left[\check{\vec{u}},\check{p}\right]^T`$,
 
