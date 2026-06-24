@@ -9,14 +9,13 @@ $$
 \nabla\cdot \vec{u}=0.
 $$
 
-The present implementation is based on a weak formulation of these equations. Test functions are introduced, and the equations are integrated over the planar domain $\Omega$ with boundary $\partial\Omega$. Solutions $[\vec{u},p]$ are then sought, in the appropriate space, such that for all test functions $[\check{\vec{u}},\check{p}]$,
+The present implementation is based on a weak formulation of these equations. Test functions are introduced, and the equations are integrated over the planar domain $\Omega$ with boundary $\partial\Omega$. Solutions $`[\vec{u},p]`$ are then sought, in the appropriate space, such that for all test functions $`[\check{\vec{u}},\check{p}]`$,
 
 $$
 \int_\Omega\check{\vec{u}}\frac{\partial\vec{u}}{\partial t}\,\mathrm{d}\vec{x}
 + \int_\Omega\check{\vec{u}}\left(\vec{u}\cdot\nabla\vec{u}\right)\,\mathrm{d}\vec{x}
 - \int_\Omega\left(\nabla\cdot\check{\vec{u}}\right)p\,\mathrm{d}\vec{x}
 + \int_\Omega\frac{1}{Re}\nabla\check{\vec{u}}:\nabla\vec{u}\,\mathrm{d}\vec{x}\\
-%+\int_{\partial\Omega}\check{u}\cdot\left(Ip - \frac{1}{Re}\nabla\vec{u}\right)\cdot\vec{n}\,\mathrm{d}\vec{x}\\
 - \int_\Omega\check{p}\left(\nabla\cdot\vec{u}\right)\,\mathrm{d}\vec{x}=0
 $$
 
