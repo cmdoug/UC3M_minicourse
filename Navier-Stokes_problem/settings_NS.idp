@@ -21,6 +21,7 @@ macro initf(i) [i, i]// EOM
 func Pkf = [P2, P2]; // FE space for forcing vector
 // Define quantities for mesh adaptation and plotting in ParaView
 macro adaptu(u) [u, u#y], u#p // EOM
+macro adaptf(f) [f, f#y] // EOM
 macro paraviewu(u) [u, u#y, 0*u], u#p //EOM
 // Names for ParaView outputs
 string[int] ParaViewNames = ["velocity", "pressure"];

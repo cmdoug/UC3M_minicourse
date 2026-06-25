@@ -72,4 +72,21 @@ ff-mpirun -np $nproc modecompute.md -v 0 -dir $workdir -eps_target 0.1+0.7i -eps
 ff-mpirun -np $nproc modecompute.md -v 0 -dir $workdir -eps_target 0.1+0.7i -eps_nev 10 -fi Reswp_adapt_15.base -so spectrum -fo asym_modes -pv 1 -sym 1
 ```
 
+### Scan across a line slightly above neutral stability threshold
+```sh
+ff-mpirun -np $nproc modecompute.md -v 0 -dir $workdir -eps_target 0.1+0.1i -ntarget 10 -targetf 0.1+1i -eps_nev 20 -fi Reswp_adapt_15.base -so spectrum_swp -pv 1 -sym 0
+ff-mpirun -np $nproc modecompute.md -v 0 -dir $workdir -eps_target 0.1+0.1i -ntarget 10 -targetf 0.1+1i -eps_nev 20 -fi Reswp_adapt_15.base -so spectrum_swp -pv 1 -sym 1
+```
 
+### Perform DNS
+First, we must reflect the mesh
+```sh
+FreeFem++-mpi $workdir/../reflectmesh.md -dir $workdir -mi test2.msh -mo reflectedmesh
+ff-mpirun -np $nproc basecompute.md -v 0 -dir $workdir -mi reflectedmesh.msh -fo reflectedbase -Re 50 -pv 1
+ff-mpirun -np $nproc tdnscompute.md -v 0 -dir $workdir -mi reflectedmesh.msh -fi asym_modes_5.mode -bfi reflectedbase.base -fo dns_solution -pv 1 -scount 5 -maxcount 1000 -amp 10
+```
+
+### Resolvent analysis
+```sh
+ff-mpirun -np $nproc rslvcompute.md -v 0 -dir $workdir -mi test2.msh -fi test2.base -sym 1 -eps_nev 5
+```
