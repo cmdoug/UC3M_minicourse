@@ -34,5 +34,5 @@ int BClat = 4;
 int BCin = 5;
 // Define solution monitors to extract: here maximum temperature in the domain
 macro getmonitors() {
-  int k = 0;
+    monitors["Fx"] = int1d(Thg, BCcyl)(ubgp*N.x - (2.0*dx(ubg)*N.x + (dx(ubgy) + dy(ubg))*N.y)/params["Re"]);
   }// EOM
